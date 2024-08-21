@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border p-0 m-0;
+  }
+
+  body {
+    @apply bg-gray-800 text-white h-screen flex flex-1 justify-center items-center;
+  }
+}
