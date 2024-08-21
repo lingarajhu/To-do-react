@@ -14,9 +14,15 @@ const TodoForm = () => {
   const [todo, setTodo] = useState<string>("");
 
   useEffect(() => {
-    const todoList = JSON.parse(localStorage.getItem("todo") || "");
+    const todoList = localStorage.getItem("todo");
     if (todoList) {
-      setTodos(todoList);
+      try {
+        const parseTodo = JSON.parse(todoList);
+        setTodos(parseTodo);
+      } catch (error) {
+        console.error("Error parsing todos from the localStorage ", error);
+        localStorage.removeItem("todo");
+      }
     }
   }, []);
 
