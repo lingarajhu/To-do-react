@@ -32,11 +32,7 @@ const Todo = ({
           onChange={() => checkTodo(todo.todoId)}
         />
         {todo.isEditing ? (
-          <EditTodoForm
-            todo={todo}
-            toggleEditTodo={toggleEditTodo}
-            editTodoVal={editTodoVal}
-          />
+          <EditTodoForm todo={todo} editTodoVal={editTodoVal} />
         ) : (
           <p
             className={`${

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import Todo from "./Todo";
 
@@ -79,7 +78,6 @@ const TodoForm = () => {
         ? { ...todo, title: val, isEditing: !todo.isEditing }
         : todo
     );
-    console.log(updateTodos);
     updateToLocalStorage(updateTodos);
   };
 

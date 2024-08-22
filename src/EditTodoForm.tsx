@@ -9,15 +9,10 @@ type InitialTodo = {
 
 type EditTodoFormProps = {
   todo: InitialTodo;
-  toggleEditTodo: (id: number) => void;
   editTodoVal: (val: string, id: number) => void;
 };
 
-const EditTodoForm = ({
-  todo,
-  toggleEditTodo,
-  editTodoVal,
-}: EditTodoFormProps) => {
+const EditTodoForm = ({ todo, editTodoVal }: EditTodoFormProps) => {
   const [val, setVal] = useState<string>("");
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,7 +26,6 @@ const EditTodoForm = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     editTodoVal(val, todo.todoId);
-    toggleEditTodo(todo.todoId);
   };
 
   return (
